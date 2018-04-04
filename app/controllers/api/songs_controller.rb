@@ -1,6 +1,6 @@
 class Api::SongsController < ApplicationController
 
-  before_action :set_song, only: [:show, :edit, :destroy]
+  before_action :set_song, only: [:show, :update, :destroy]
   
   def index
     render json: Song.all
