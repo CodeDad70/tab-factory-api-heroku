@@ -27,7 +27,14 @@ class Api::SongsController < ApplicationController
     render json: @song
   end
 
-
+  def destroy 
+    if @song.destroy 
+      render json: @song.all
+    else 
+      render json: {message: "song not deleted"}, status: 400 
+    end
+  end
+    
   private
 
     def set_song
