@@ -1,4 +1,6 @@
 class Api::SongsController < ApplicationController
+
+  before_action :set_song, only: [:show, :edit, :destroy]
   
   def index
     render json: Song.all
@@ -13,13 +15,25 @@ class Api::SongsController < ApplicationController
     end
   end
 
+  def update 
+    if @song.update(song_params)
+      render json: @song
+    else
+      render json: {message: song.errors}, status: 400 
+    end
+  end
 
   def show
-    render json: Song.find_by(id: params[:id])
+    render json: @song
   end
 
 
   private
+
+    def set_song
+      @song = Song.find_by(id: params[:id])
+    end
+
     def song_params
       params.require(:song).permit(:name, :lyrics, :chords, :chord_chart)
     end
