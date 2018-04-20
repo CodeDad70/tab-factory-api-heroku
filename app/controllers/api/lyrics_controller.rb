@@ -11,7 +11,7 @@ class Api::LyricsController < ApplicationController
     if lyric.save 
       render json:lyric
     else
-      render json: {message: song.errors}, status: 400 
+      render json: {message: lyric.errors}, status: 400 
     end
   end
 
@@ -19,7 +19,7 @@ class Api::LyricsController < ApplicationController
     if @lyric.update(lyric_params)
       render json: @lyric
     else
-      render json: {message: song.errors}, status: 400 
+      render json: {message: lyric.errors}, status: 400 
     end
   end
 
@@ -31,7 +31,7 @@ class Api::LyricsController < ApplicationController
     if @lyric.destroy 
       render json: @lyric.all
     else 
-      render json: {message: "song not deleted"}, status: 400 
+      render json: {message: "lyric not deleted"}, status: 400 
     end
   end
     
