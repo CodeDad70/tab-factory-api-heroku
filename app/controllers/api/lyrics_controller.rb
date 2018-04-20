@@ -41,7 +41,7 @@ class Api::LyricsController < ApplicationController
       @lyric = Lyric.find_by(id: params[:id])
     end
 
-    def song_lyric
+    def lyric_params
       params.require(:lyric).permit(:words, :song_id)
     end
 
