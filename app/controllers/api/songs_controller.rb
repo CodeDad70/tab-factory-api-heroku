@@ -45,5 +45,4 @@ class Api::SongsController < ApplicationController
       params.require(:song).permit(:name, :artist, :lyrics)
     end
 
-  
 end
