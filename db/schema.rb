@@ -15,21 +15,13 @@ ActiveRecord::Schema.define(version: 20180509191640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "lyrics", force: :cascade do |t|
-    t.string "words"
-    t.integer "song_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "chords"
-  end
-
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.string "artist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "lyrics"
-    t.integer "counter"
+    t.integer "counter", default: 0
   end
 
 end
